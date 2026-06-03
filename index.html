@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the professional photography portfolio of Vishnu Kumar. Specializing in landscape, street, portrait, and minimalist fine-art photography.">
+    <title>292 Studios by Vishnu Kumar</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Custom Custom Scrollbar & Loading Cover -->
+    <div id="loader" class="loader-container">
+        <div class="loader-bar"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="main-header" id="header">
+        <div class="header-container">
+            <a href="#" class="logo" id="logo-link">
+                <span class="logo-name">292 STUDIOS</span>
+                <span class="logo-subtitle">BY VISHNU KUMAR</span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#gallery" class="nav-link" id="nav-work">Work</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link" id="nav-about">About</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link" id="nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-socials">
+                <a href="https://unsplash.com" target="_blank" rel="noopener" class="social-icon-link" id="social-unsplash" aria-label="Unsplash">
+                    <svg viewBox="0 0 24 24" class="svg-icon"><path d="M7.5 6.75V3h9v3.75h-9zm9 4.5H21V21H3V11.25h4.5V15h9v-3.75z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/292_studios/" target="_blank" rel="noopener" class="social-icon-link" id="social-instagram" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" class="svg-icon"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button class="menu-toggle" id="menu-toggle-btn" aria-label="Toggle Menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <ul class="mobile-nav-list">
+            <li><a href="#gallery" class="mobile-nav-link" id="mob-nav-work">Work</a></li>
+            <li><a href="#about" class="mobile-nav-link" id="mob-nav-about">About</a></li>
+            <li><a href="#contact" class="mobile-nav-link" id="mob-nav-contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero / Showcase Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-bg-wrapper">
+            <img src="images/hero.png" alt="Majestic mountains shrouded in mist" class="hero-bg-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title animate-text-reveal">292 STUDIOS</h1>
+            <p class="hero-tagline animate-fade-up">BY VISHNU KUMAR</p>
+            <div class="hero-scroll-indicator animate-bounce">
+                <a href="#gallery" aria-label="Scroll down to gallery">
+                    <span class="scroll-arrow"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery / Work Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header reveal-on-scroll">
+                <h2 class="section-title">PORTFOLIO</h2>
+                <div class="title-underline"></div>
+                <p class="section-desc">A showcase of portrait, event, and creative lifestyle photography projects.</p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="gallery-grid">
+                
+                <!-- Project 1: Santos Session -->
+                <div class="gallery-item reveal-on-scroll">
+                    <a href="project.html?project=santos" class="gallery-card-link">
+                        <div class="gallery-card">
+                            <img src="images/work/santos/IMG_6262-Edit.jpg" alt="Santos Portrait Session" class="gallery-img" loading="lazy">
+                            <div class="card-overlay">
+                                <div class="card-info">
+                                    <span class="card-category">Portrait &amp; Lifestyle</span>
+                                    <h3 class="card-title">Santos Session</h3>
+                                    <p class="card-location">NJ Outdoor &amp; Studio</p>
+                                </div>
+                                <div class="card-action">
+                                    <span class="view-icon">➔</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Project 2: Jade's Graduation -->
+                <div class="gallery-item reveal-on-scroll">
+                    <a href="project.html?project=graduation" class="gallery-card-link">
+                        <div class="gallery-card">
+                            <img src="images/work/graduation/IMG_7355-Edit.png" alt="Jade's Graduation" class="gallery-img" loading="lazy">
+                            <div class="card-overlay">
+                                <div class="card-info">
+                                    <span class="card-category">Event / Portrait</span>
+                                    <h3 class="card-title">Jade's Graduation</h3>
+                                    <p class="card-location">University Campus</p>
+                                </div>
+                                <div class="card-action">
+                                    <span class="view-icon">➔</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Project 3: Client Headshots -->
+                <div class="gallery-item reveal-on-scroll">
+                    <a href="project.html?project=headshots" class="gallery-card-link">
+                        <div class="gallery-card">
+                            <img src="images/work/headshots/DSC01252-Edit.png" alt="Studio Headshots" class="gallery-img" loading="lazy">
+                            <div class="card-overlay">
+                                <div class="card-info">
+                                    <span class="card-category">Corporate &amp; Creative</span>
+                                    <h3 class="card-title">Studio Headshots</h3>
+                                    <p class="card-location">Home Studio, Sayreville NJ</p>
+                                </div>
+                                <div class="card-action">
+                                    <span class="view-icon">➔</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Project 4: Birthdays & Celebrations -->
+                <div class="gallery-item reveal-on-scroll">
+                    <a href="project.html?project=birthdays" class="gallery-card-link">
+                        <div class="gallery-card">
+                            <img src="images/work/birthdays/IMG_5353-Edit.jpg" alt="Birthday &amp; Celebrations" class="gallery-img" loading="lazy">
+                            <div class="card-overlay">
+                                <div class="card-info">
+                                    <span class="card-category">Event &amp; Lifestyle</span>
+                                    <h3 class="card-title">Birthdays &amp; Events</h3>
+                                    <p class="card-location">Private Venues</p>
+                                </div>
+                                <div class="card-action">
+                                    <span class="view-icon">➔</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Project 5: Creative Session -->
+                <div class="gallery-item reveal-on-scroll">
+                    <a href="project.html?project=creative" class="gallery-card-link">
+                        <div class="gallery-card">
+                            <img src="images/work/creative/IMG_5179-Edit.jpg" alt="Creative Concept Session" class="gallery-img" loading="lazy">
+                            <div class="card-overlay">
+                                <div class="card-info">
+                                    <span class="card-category">Artistic Portraiture</span>
+                                    <h3 class="card-title">Creative Session</h3>
+                                    <p class="card-location">Studio Session</p>
+                                </div>
+                                <div class="card-action">
+                                    <span class="view-icon">➔</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Equipment Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+
+                <!-- Left: compact inline photo carousel -->
+                <div class="about-img-col reveal-on-scroll">
+                    <div class="about-carousel">
+                        <div class="about-img-frame">
+                            <img src="images/photo1.jpg" alt="Studio portrait" class="about-profile-img" id="about-carousel-img" draggable="false">
+                            <div class="carousel-fade-overlay" id="carousel-fade"></div>
+                        </div>
+                        <div class="carousel-controls">
+                            <div class="carousel-nav-buttons">
+                                <button type="button" class="carousel-btn" id="about-prev" aria-label="Previous photo">
+                                    <svg viewBox="0 0 24 24" class="svg-icon"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                                </button>
+                                <button type="button" class="carousel-btn" id="about-next" aria-label="Next photo">
+                                    <svg viewBox="0 0 24 24" class="svg-icon"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                                </button>
+                            </div>
+                            <div class="carousel-dots" id="carousel-dots">
+                                <span class="carousel-dot active" data-index="0"></span>
+                                <span class="carousel-dot" data-index="1"></span>
+                                <span class="carousel-dot" data-index="2"></span>
+                                <span class="carousel-dot" data-index="3"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: bio + equipment -->
+                <div class="about-content-col reveal-on-scroll">
+                    <h2 class="about-title">THE PHOTOGRAPHER</h2>
+                    <div class="title-underline left"></div>
+                    <p class="about-bio">
+                        I am <strong>Vishnu Kumar</strong>, a portrait and lifestyle photographer based in Sayreville, NJ. Operating a home studio, I specialize in client headshots, creative concept shoots, and intimate lifestyle sessions — bringing out authenticity in every frame.
+                    </p>
+                    <p class="about-bio">
+                        Every session is a collaboration. I work closely with each client to creatively direct the shoot from styling and mood through to the final edit, delivered via Adobe Lightroom and Photoshop.
+                    </p>
+                    <div class="equipment-box">
+                        <h3 class="equipment-title">EQUIPMENT &amp; WORKFLOW</h3>
+                        <ul class="equipment-list">
+                            <li><strong>Studio:</strong> Home studio, Sayreville NJ — controlled lighting environment</li>
+                            <li><strong>Specialties:</strong> Headshots, creative concept shoots, lifestyle photography</li>
+                            <li><strong>Post-processing:</strong> Adobe Lightroom &amp; Photoshop (Creative Cloud)</li>
+                            <li><strong>Delivery:</strong> High-resolution digital exports, archival backups</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-card reveal-on-scroll">
+                <div class="contact-header">
+                    <h2 class="contact-title">WORK TOGETHER</h2>
+                    <div class="title-underline"></div>
+                    <p class="contact-subtitle">Have a project, print inquiry, or just want to discuss photography? Let's connect.</p>
+                </div>
+                
+                <form id="contact-form" class="contact-form" action="#" method="POST" novalidate>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="contact-name">Name</label>
+                            <input type="text" id="contact-name" name="name" placeholder="John Doe" required>
+                            <span class="error-msg" id="error-name">Name is required</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" name="email" placeholder="john@example.com" required>
+                            <span class="error-msg" id="error-email">Please enter a valid email address</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-subject">Subject</label>
+                        <input type="text" id="contact-subject" name="subject" placeholder="Project Inquiry / Print Sale" required>
+                        <span class="error-msg" id="error-subject">Subject is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="message" rows="5" placeholder="Tell me about your project details..." required></textarea>
+                        <span class="error-msg" id="error-message">Message cannot be empty</span>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submit-btn">
+                        <span class="btn-text">Submit Message</span>
+                        <span class="btn-loader"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Toast Notification -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-copyright">&copy; 2026 292 Studios. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#home" class="footer-link">Back to Top</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
