@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 
-$token = "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"
+$token = "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"
 $username = "v292studios-coder"
 $repoName = "portfolio"
 
