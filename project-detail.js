@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Jade's Graduation",
             category: "Event / Portrait",
             description: "Professional graduation portraits capturing the milestones, achievements, and academic pride on campus.",
-            location: "University Campus",
+            location: "Studio session",
             camera: "Sony A7R V",
             lens: "FE 70-200mm f/2.8 GM II",
             exif: "135mm · f/2.8 · 1/400s · ISO 200",
