@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; connect-src 'self' https://script.google.com;">
+    <meta name="description" content="View pricing details for professional photography services by Vishnu Kumar.">
+    <title>Pricing | 292 Studios</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .project-header-section {
+            padding: 8rem 0 4rem 0;
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .project-detail-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+        
+        .project-detail-meta span:not(:last-child)::after {
+            content: "·";
+            margin-left: 1.5rem;
+            color: var(--text-muted);
+        }
+        
+        .project-detail-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        
+        .project-detail-desc {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            font-weight: 300;
+            max-width: 800px;
+        }
+        @media (max-width: 768px) {
+            .project-header-section {
+                padding: 6rem 0 3rem 0;
+            }
+            .project-detail-title {
+                font-size: 1.75rem;
+                letter-spacing: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="main-header scrolled" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo" id="logo-link">
+                <span class="logo-name">292 STUDIOS</span>
+                <span class="logo-subtitle">BY VISHNU KUMAR</span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html#gallery" class="nav-link">Work</a></li>
+                    <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-socials">
+                <a href="https://unsplash.com" target="_blank" rel="noopener" class="social-icon-link" aria-label="Unsplash">
+                    <svg viewBox="0 0 24 24" class="svg-icon"><path d="M7.5 6.75V3h9v3.75h-9zm9 4.5H21V21H3V11.25h4.5V15h9v-3.75z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/292_studios/" target="_blank" rel="noopener" class="social-icon-link" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" class="svg-icon"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+            </div>
+
+            <button class="menu-toggle" id="menu-toggle-btn" aria-label="Toggle Menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <ul class="mobile-nav-list">
+            <li><a href="index.html#gallery" class="mobile-nav-link">Work</a></li>
+            <li><a href="index.html#about" class="mobile-nav-link">About</a></li>
+            <li><a href="pricing.html" class="mobile-nav-link">Pricing</a></li>
+            <li><a href="index.html#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Pricing Header Section -->
+    <section class="project-header-section">
+        <div class="container">
+            <div class="project-detail-meta">
+                <span>Investment</span>
+                <span>Services</span>
+            </div>
+            <h1 class="project-detail-title">Pricing Details</h1>
+            <p class="project-detail-desc">Transparent pricing for premium photography sessions. Choose the package that fits your creative vision.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Grid Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-grid">
+                
+                <!-- Head shots -->
+                <div class="pricing-card reveal-on-scroll">
+                    <div class="pricing-header">
+                        <h3 class="pricing-tier">Head shots</h3>
+                        <div class="pricing-price">$150</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>1-2 looks</li>
+                        <li>1 hour shoot</li>
+                        <li>1 background</li>
+                        <li>Keep all JPEGs</li>
+                        <li>3 edited pics <span class="pricing-extra">+$15 per extra edit requested</span></li>
+                        <li>1 round of re-edits</li>
+                        <li>+$25 for RAWs</li>
+                    </ul>
+                    <a href="index.html#contact" class="pricing-btn">Book Now</a>
+                </div>
+
+                <!-- Basic -->
+                <div class="pricing-card reveal-on-scroll popular">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-tier">Basic</h3>
+                        <div class="pricing-price">$200 <span class="pricing-sub">basic shoot</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>1 look</li>
+                        <li>1.5 hour shoot</li>
+                        <li>1 background</li>
+                        <li>Keep all JPEGs</li>
+                        <li>6 edited pics <span class="pricing-extra">+$15 per extra edit requested</span></li>
+                        <li>1 round of re-edits</li>
+                        <li>+$25 for RAWs</li>
+                    </ul>
+                    <a href="index.html#contact" class="pricing-btn">Book Now</a>
+                </div>
+
+                <!-- Basic + -->
+                <div class="pricing-card reveal-on-scroll">
+                    <div class="pricing-header">
+                        <h3 class="pricing-tier">Basic +</h3>
+                        <div class="pricing-price">$300</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>1+ looks</li>
+                        <li>1.5 hour shoot</li>
+                        <li>2 backgrounds</li>
+                        <li>6 edited pics <span class="pricing-extra">+$15 per extra edit</span></li>
+                        <li>1 round of re-edits</li>
+                        <li>+$25 for RAWs</li>
+                    </ul>
+                    <a href="index.html#contact" class="pricing-btn">Book Now</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-copyright">&copy; 2026 292 Studios. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Back to Home</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const menuToggleBtn = document.getElementById('menu-toggle-btn');
+        const mobileOverlay = document.getElementById('mobile-nav-overlay');
+        const toggleMenu = () => {
+            const isOpen = menuToggleBtn.classList.toggle('open');
+            mobileOverlay.classList.toggle('open', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        };
+        if (menuToggleBtn && mobileOverlay) {
+            menuToggleBtn.addEventListener('click', toggleMenu);
+        }
+        
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        if ('IntersectionObserver' in window && revealElements.length > 0) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            revealElements.forEach(elem => revealObserver.observe(elem));
+        } else {
+            revealElements.forEach(elem => elem.classList.add('active'));
+        }
+    </script>
+</body>
+</html>
