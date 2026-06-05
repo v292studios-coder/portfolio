@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; connect-src 'self' https://script.google.com;">
     <meta name="description" content="Explore the professional photography portfolio of Vishnu Kumar. Specializing in landscape, street, portrait, and minimalist fine-art photography.">
     <title>292 Studios by Vishnu Kumar</title>
     
@@ -258,6 +259,11 @@
                 </div>
                 
                 <form id="contact-form" class="contact-form" action="#" method="POST" novalidate>
+                    <!-- Honeypot Field for Spam Prevention -->
+                    <div style="display:none;" aria-hidden="true">
+                        <label for="contact-website">Website</label>
+                        <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="contact-name">Name</label>

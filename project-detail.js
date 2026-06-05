@@ -157,9 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lbCat = document.getElementById('lightbox-cat');
     const lbTitle = document.getElementById('lightbox-title');
     const lbLoc = document.getElementById('lightbox-loc');
-    const lbCam = document.getElementById('exif-cam');
-    const lbLens = document.getElementById('exif-lens');
-    const lbSettings = document.getElementById('exif-settings');
+
 
     let currentPhotoIndex = 0;
 
@@ -174,9 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lbCat.textContent = project.category;
         lbTitle.textContent = `${project.title} #${index + 1}`;
         lbLoc.textContent = project.location;
-        lbCam.textContent = project.camera;
-        lbLens.textContent = project.lens;
-        lbSettings.textContent = project.exif;
+
         
         lightboxImg.src = path;
         lightboxImg.alt = `${project.title} - Frame ${index + 1}`;

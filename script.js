@@ -109,10 +109,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const showToast = (message) => {
         const toast = document.createElement('div');
         toast.className = 'toast';
-        toast.innerHTML = `
-            <span class="toast-success-icon">✓</span>
-            <span class="toast-msg">${message}</span>
-        `;
+        
+        const iconSpan = document.createElement('span');
+        iconSpan.className = 'toast-success-icon';
+        iconSpan.textContent = '✓';
+        
+        const msgSpan = document.createElement('span');
+        msgSpan.className = 'toast-msg';
+        msgSpan.textContent = message;
+        
+        toast.appendChild(iconSpan);
+        toast.appendChild(msgSpan);
         
         toastContainer.appendChild(toast);
         
@@ -147,6 +154,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const emailField = document.getElementById('contact-email');
             const subjectField = document.getElementById('contact-subject');
             const messageField = document.getElementById('contact-message');
+            const websiteField = document.getElementById('contact-website');
+            
+            // Honeypot check for bots
+            if (websiteField && websiteField.value !== '') {
+                console.log('Spam blocked');
+                contactForm.reset();
+                showToast("Message received! I'll get back to you shortly.");
+                return;
+            }
             
             // Validators
             const isNameValid = validateField(nameField, 'error-name', val => val.length > 0);
