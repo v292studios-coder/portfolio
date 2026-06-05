@@ -166,23 +166,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 const urlEncodedData = new URLSearchParams(formData);
                 const scriptURL = 'https://script.google.com/macros/s/AKfycbyga1IE1K-SRkHBT0m7im6vmnRJiHpKwPNSfovqLPWHpaCV-hdztdqTAVfx4rIGFD_zhA/exec';
 
-                fetch(scriptURL, { method: 'POST', body: urlEncodedData })
-                    .then(response => {
-                        submitBtn.classList.remove('loading');
-                        submitBtn.disabled = false;
-                        
-                        // Reset Form fields & display notification
-                        contactForm.reset();
-                        document.querySelectorAll('.form-group').forEach(grp => grp.classList.remove('invalid'));
-                        
-                        showToast("Message received! I'll get back to you shortly.");
-                    })
-                    .catch(error => {
-                        submitBtn.classList.remove('loading');
-                        submitBtn.disabled = false;
-                        showToast("Oops! Something went wrong. Please try again.");
-                        console.error('Error!', error.message);
-                    });
+                // Use no-cors to avoid CORS errors with Google Apps Script.
+                // The response will be opaque (unreadable) but the data is still
+                // saved to the sheet and email is sent on the server side.
+                fetch(scriptURL, {
+                    method: 'POST',
+                    body: urlEncodedData,
+                    mode: 'no-cors'
+                })
+                .then(() => {
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                    contactForm.reset();
+                    document.querySelectorAll('.form-group').forEach(grp => grp.classList.remove('invalid'));
+                    showToast("Message received! I'll get back to you shortly.");
+                })
+                .catch(error => {
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                    showToast("Oops! Something went wrong. Please try again.");
+                    console.error('Error!', error.message);
+                });
             }
         });
 
