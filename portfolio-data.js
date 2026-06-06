@@ -89,10 +89,10 @@ const portfolioData = {
             "category": "Studio",
             "coverImage": "images/Photos/about me/cover-IMG_5224-Edit.jpg",
             "images": [
+                "images/Photos/about me/cover-IMG_5224-Edit.jpg",
                 "images/Photos/about me/IMG_5179-Edit.jpg",
                 "images/Photos/about me/IMG_5256-Edit.jpg",
-                "images/Photos/about me/IMG_5261-Edit.jpg",
-                "images/Photos/about me/cover-IMG_5224-Edit.jpg"
+                "images/Photos/about me/IMG_5261-Edit.jpg"
             ]
         }
     ],
