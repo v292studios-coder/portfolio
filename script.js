@@ -225,12 +225,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- 9. About Section Photo Carousel ---
-    const carouselPhotos = [
+    let carouselPhotos = [
         'images/photo1.jpg',
         'images/photo2.jpg',
         'images/photo3.jpg',
         'images/photo4.jpg'
     ];
+    
+    if (typeof portfolioData !== 'undefined' && portfolioData['Studio']) {
+        const aboutShoot = portfolioData['Studio'].find(s => s.id === 'studio-about-me');
+        if (aboutShoot && aboutShoot.images && aboutShoot.images.length > 0) {
+            carouselPhotos = aboutShoot.images;
+            // Add initial image onto the img element
+            const cImg = document.getElementById('about-carousel-img');
+            if (cImg) cImg.src = carouselPhotos[0];
+            
+            // Adjust dots array size if necessary
+            const dotsContainer = document.getElementById('carousel-dots');
+            if (dotsContainer) {
+                dotsContainer.innerHTML = '';
+                carouselPhotos.forEach((_, i) => {
+                    const activeClass = i === 0 ? ' active' : '';
+                    dotsContainer.innerHTML += `<span class="carousel-dot${activeClass}" data-index="${i}"></span>`;
+                });
+            }
+        }
+    }
 
     const carouselImg  = document.getElementById('about-carousel-img');
     const carouselFade = document.getElementById('carousel-fade');
@@ -275,7 +295,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    dots.forEach(dot => {
+    // Re-select dots after dynamic injection
+    const updatedDots = document.querySelectorAll('.carousel-dot');
+    updatedDots.forEach(dot => {
         dot.addEventListener('click', () => {
             const idx = parseInt(dot.getAttribute('data-index'));
             if (idx !== carouselIndex) goToPhoto(idx);
@@ -332,6 +354,57 @@ document.addEventListener('DOMContentLoaded', () => {
                 handleDragEnd(e.clientX);
             }
         });
+    }
+
+    // --- 10. Gallery Rendering ---
+    const galleryGrid = document.getElementById('gallery-grid');
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    
+    const renderGallery = (category) => {
+        if (!galleryGrid || typeof portfolioData === 'undefined') return;
+        
+        galleryGrid.innerHTML = '';
+        
+        const shoots = portfolioData[category] || [];
+        
+        shoots.forEach(shoot => {
+            if (shoot.id === 'studio-about-me') return; // Skip about me from gallery!
+            
+            const html = `
+                <div class="gallery-item active">
+                    <a href="project.html?project=${shoot.id}" class="gallery-card-link">
+                        <div class="gallery-card">
+                            <img src="${shoot.coverImage}" alt="${shoot.title}" class="gallery-img" loading="lazy">
+                            <div class="card-overlay">
+                                <div class="card-info">
+                                    <span class="card-category">${category}</span>
+                                    <h3 class="card-title">${shoot.title}</h3>
+                                </div>
+                                <div class="card-action">
+                                    <span class="view-icon">➔</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            `;
+            galleryGrid.insertAdjacentHTML('beforeend', html);
+        });
+    };
+
+    if (tabBtns.length > 0) {
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const category = btn.getAttribute('data-tab');
+                renderGallery(category);
+            });
+        });
+        
+        // Initial render
+        renderGallery('Studio');
     }
 
 });

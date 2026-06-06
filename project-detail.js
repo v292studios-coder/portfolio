@@ -23,92 +23,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 40);
 
     // --- 2. Project Database ---
-    const projectData = {
-        santos: {
-            title: "Santos Portrait Session",
-            category: "Portrait / Lifestyle",
-            description: "An editorial portrait session featuring natural expressions, rich sunset golden-hour lighting, and authentic lifestyle concepts.",
-            location: "NJ Outdoor & Studio Session",
-            camera: "Sony A7R V",
-            lens: "FE 85mm f/1.4 GM",
-            exif: "85mm · f/1.8 · 1/250s · ISO 100",
-            images: [
-                "IMG_6250-Edit.jpg", "IMG_6262-Edit.jpg", "IMG_6267-Edit.jpg", "IMG_6296-Edit.jpg", 
-                "IMG_6300-Edit.jpg", "IMG_6300-Edit-2.jpg", "IMG_6301-Edit.jpg", "IMG_6301-Edit-2.jpg", 
-                "IMG_6312.jpg", "IMG_6318-Edit.jpg", "IMG_6318-Edit-2.jpg", "IMG_6392.jpg", 
-                "IMG_6415-Edit.jpg", "IMG_6447-Edit.jpg", "IMG_6466-Edit.jpg", "IMG_6482-Edit.jpg", 
-                "IMG_6489-Edit.jpg", "IMG_6500-Recovered.jpg", "IMG_6516-Edit.jpg", "IMG_6520-Edit.jpg", 
-                "IMG_6533-Edit.jpg"
-            ]
-        },
-        graduation: {
-            title: "Jade's Graduation",
-            category: "Event / Portrait",
-            description: "Professional graduation portraits capturing the milestones, achievements, and academic pride on campus.",
-            location: "Studio session",
-            camera: "Sony A7R V",
-            lens: "FE 70-200mm f/2.8 GM II",
-            exif: "135mm · f/2.8 · 1/400s · ISO 200",
-            images: [
-                "IMG_7282-Edit.png", "IMG_7296-Edit.png", "IMG_7318-Edit.png", "IMG_7329-Edit-2.png", 
-                "IMG_7341.png", "IMG_7355-Edit.png", "IMG_7400-Edit.png", "IMG_7402-Edit.png", 
-                "IMG_7412-Edit.png", "IMG_7416-Edit.png", "IMG_7432-Edit.png", "IMG_7439-Edit.png", 
-                "IMG_7440-Edit.png", "IMG_7485-Edit.JPG", "IMG_7563-Edit.jpg", "IMG_7594-Edit.jpg", 
-                "IMG_7600-Edit-2.png", "IMG_7630-Edit.jpg", "IMG_7634-Edit.JPG", "IMG_7636-Edit.png"
-            ]
-        },
-        headshots: {
-            title: "Studio Headshots",
-            category: "Corporate / Corporate Portrait",
-            description: "High-end corporate and creative client headshots capturing authentic, professional expressions in a controlled home studio environment.",
-            location: "Sayreville, NJ",
-            camera: "Sony A7R V",
-            lens: "FE 85mm f/1.4 GM",
-            exif: "85mm · f/4.0 · 1/160s · ISO 100 (Studio Flash)",
-            images: [
-                "DSC01224-Edit-3.png", "DSC01252-Edit.png", "DSC01291-Edit.png", "DSC01319-Edit.png", 
-                "DSC01347-Edit.png", "DSC01366-Edit.png", "IMG_6731-Edit.jpg", "IMG_6732-Edit.jpg", 
-                "IMG_6734-Edit.jpg", "IMG_6735-Edit.jpg"
-            ]
-        },
-        birthdays: {
-            title: "Birthday & Celebrations",
-            category: "Event / Lifestyle",
-            description: "Preserving genuine connections, toasts, and details of intimate birthday events and milestone celebrations.",
-            location: "Private Venues",
-            camera: "Sony A7R V",
-            lens: "FE 24-70mm f/2.8 GM II",
-            exif: "35mm · f/2.8 · 1/125s · ISO 1250",
-            images: [
-                "IMG_5817-Edit.jpg", "IMG_5842-Edit.jpg", "IMG_5844-Edit-2.jpg", "IMG_5854-Edit.jpg", 
-                "IMG_5858-Edit.jpg", "IMG_5867-Edit.jpg", "IMG_5868-Edit.jpg", "IMG_5869-Edit.jpg", 
-                "IMG_5353-Edit.jpg", "IMG_5357-Edit.jpg", "IMG_5383-Edit.jpg", "IMG_5420-Edit.jpg", 
-                "IMG_5434-Edit.jpg", "IMG_5436-Edit.jpg", "IMG_5440-Edit.jpg", "IMG_5455-Edit.jpg", 
-                "IMG_5554-Edit.jpg", "IMG_5560-Edit.jpg", "IMG_5577-Edit.jpg", "IMG_5588-Edit.jpg", 
-                "IMG_5610.jpg", "IMG_5616-Edit.jpg"
-            ]
-        },
-        creative: {
-            title: "Creative Concept Session",
-            category: "Artistic Portraiture",
-            description: "Conceptual and portrait photography focusing on artistic direction, controlled mood lighting, shadows, and styling.",
-            location: "Studio Session",
-            camera: "Sony A7R V",
-            lens: "FE 50mm f/1.2 GM",
-            exif: "50mm · f/1.2 · 1/200s · ISO 100",
-            images: [
-                "IMG_5179-Edit.jpg", "IMG_5224-Edit.jpg", "IMG_5256-Edit.jpg", "IMG_5261-Edit.jpg"
-            ]
-        }
-    };
+    let project = null;
+    let projKey = null;
 
     // --- 3. Dynamic Page Rendering ---
     const urlParams = new URLSearchParams(window.location.search);
-    const projKey = urlParams.get('project') || 'santos';
-    const project = projectData[projKey];
+    projKey = urlParams.get('project');
+
+    if (typeof portfolioData !== 'undefined' && projKey) {
+        for (const cat in portfolioData) {
+            const shoot = portfolioData[cat].find(s => s.id === projKey);
+            if (shoot) {
+                project = {
+                    title: shoot.title,
+                    category: shoot.category,
+                    description: "A showcase of portrait, event, and creative lifestyle photography projects.",
+                    location: "Studio Session",
+                    camera: "Sony A7R V",
+                    lens: "FE 85mm f/1.4 GM",
+                    exif: "85mm · f/1.8 · 1/250s · ISO 100",
+                    images: shoot.images
+                };
+                break;
+            }
+        }
+    }
 
     if (!project) {
-        // Fallback to santos if project key invalid
+        // Fallback to index if project key invalid
         window.location.href = "index.html";
         return;
     }
@@ -127,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.className = 'gallery-item reveal-on-scroll';
         item.setAttribute('data-index', idx);
         
-        const path = `images/work/${projKey}/${imgFilename}`;
+        const path = imgFilename;
         
         item.innerHTML = `
             <div class="gallery-card">
@@ -164,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadLightboxPhoto = (index) => {
         currentPhotoIndex = index;
         const imgFilename = project.images[index];
-        const path = `images/work/${projKey}/${imgFilename}`;
+        const path = imgFilename;
         
         lightboxImg.style.opacity = '0';
         lightboxImg.style.transform = 'scale(0.98)';
