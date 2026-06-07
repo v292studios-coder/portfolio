@@ -407,4 +407,17 @@ document.addEventListener('DOMContentLoaded', () => {
         renderGallery('Studio');
     }
 
+    // --- FAQ Accordion Logic ---
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (faqItems.length > 0) {
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            if (question) {
+                question.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
+            }
+        });
+    }
+
 });
