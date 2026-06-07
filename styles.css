@@ -1542,3 +1542,14 @@ body {
     color: var(--accent-gold);
     border-bottom-color: var(--accent-gold);
 }
+
+/* Mobile Socials */
+.mobile-socials {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+.mobile-socials .social-icon-link {
+    width: 2.5rem;
+    height: 2.5rem;
+}
