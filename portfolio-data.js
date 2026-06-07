@@ -118,6 +118,17 @@ const portfolioData = {
     ],
     "headshots": [
         {
+            "id": "headshots-aldo",
+            "title": "Aldo",
+            "category": "headshots",
+            "coverImage": "images/Photos/headshots/Aldo/cover-IMG_5895-Edit.jpg",
+            "images": [
+                "images/Photos/headshots/Aldo/cover-IMG_5895-Edit.jpg",
+                "images/Photos/headshots/Aldo/IMG_5926-Edit.jpg",
+                "images/Photos/headshots/Aldo/IMG_5927-Edit.jpg"
+            ]
+        },
+        {
             "id": "headshots-ebonie",
             "title": "ebonie",
             "category": "headshots",
