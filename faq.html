@@ -55,8 +55,9 @@
         
         .faq-question {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            position: relative;
             cursor: pointer;
             font-family: var(--font-heading);
             font-size: 1.2rem;
@@ -71,6 +72,8 @@
         }
         
         .faq-icon {
+            position: absolute;
+            right: 0;
             font-size: 1.5rem;
             color: var(--accent-gold);
             transition: transform 0.3s ease;
@@ -87,6 +90,7 @@
             color: var(--text-secondary);
             line-height: 1.6;
             font-weight: 300;
+            text-align: center;
         }
         
         .faq-item.active .faq-answer {
