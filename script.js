@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
             progress = 100;
             clearInterval(interval);
             setTimeout(() => {
-                loader.style.opacity = '0';
-                setTimeout(() => loader.style.display = 'none', 300);
+                if (loader) loader.style.opacity = '0';
+                setTimeout(() => { if (loader) loader.style.display = 'none'; }, 300);
             }, 300);
         }
         if (loaderBar) loaderBar.style.width = `${progress}%`;
