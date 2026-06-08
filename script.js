@@ -152,6 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const nameField = document.getElementById('contact-name');
             const emailField = document.getElementById('contact-email');
+            const dateField = document.getElementById('contact-date');
+            const timeField = document.getElementById('contact-time');
             const subjectField = document.getElementById('contact-subject');
             const messageField = document.getElementById('contact-message');
             const websiteField = document.getElementById('contact-website');
@@ -170,10 +172,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 return regex.test(val);
             });
+            const isDateValid = validateField(dateField, 'error-date', val => val.length > 0);
+            const isTimeValid = validateField(timeField, 'error-time', val => val.length > 0);
             const isSubjectValid = validateField(subjectField, 'error-subject', val => val.length > 0);
             const isMessageValid = validateField(messageField, 'error-message', val => val.length > 0);
             
-            if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
+            if (isNameValid && isEmailValid && isDateValid && isTimeValid && isSubjectValid && isMessageValid) {
                 // Form is valid - enter loading state
                 submitBtn.classList.add('loading');
                 submitBtn.disabled = true;
@@ -220,6 +224,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setupRealtimeValidation(document.getElementById('contact-name'), val => val.length > 0);
         setupRealtimeValidation(document.getElementById('contact-email'), val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val));
+        setupRealtimeValidation(document.getElementById('contact-date'), val => val.length > 0);
+        setupRealtimeValidation(document.getElementById('contact-time'), val => val.length > 0);
         setupRealtimeValidation(document.getElementById('contact-subject'), val => val.length > 0);
         setupRealtimeValidation(document.getElementById('contact-message'), val => val.length > 0);
     }
