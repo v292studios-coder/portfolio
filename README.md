@@ -1,21 +1,21 @@
-﻿# 292 Studios â€” Photography Portfolio
+# 292 Studios — Photography Portfolio
 
 A premium photography portfolio website for **Vishnu Kumar** of 292 Studios.
 
-## ðŸŒ Live Site
-Deployed automatically via GitHub Actions â†’ Vercel on every push to main.
+## 🌐 Live Site
+Live website: [292studios.com](https://292studios.com/) (deployed automatically via GitHub Actions → Vercel on every push to main)
 
-## ðŸ“ Projects
-- **Santos Session** â€” Portrait & Lifestyle
-- **Jade's Graduation** â€” Event / Portrait
-- **Studio Headshots** â€” Corporate & Creative
-- **Birthdays & Events** â€” Event & Lifestyle
-- **Creative Session** â€” Artistic Portraiture
+## 📁 Projects
+- **Santos Session** — Portrait & Lifestyle
+- **Jade's Graduation** — Event / Portrait
+- **Studio Headshots** — Corporate & Creative
+- **Birthdays & Events** — Event & Lifestyle
+- **Creative Session** — Artistic Portraiture
 
-## ðŸ› ï¸ Stack
+## 🛠️ Stack
 - Vanilla HTML, CSS, JavaScript
 - Google Sheets backend (contact form)
 - Vercel hosting (auto-deployed via GitHub Actions)
 
-## ðŸ“¸ Instagram
+## 📷 Instagram
 [@292_studios](https://www.instagram.com/292_studios/)
