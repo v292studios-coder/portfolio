@@ -881,7 +881,8 @@ body {
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
     background: var(--bg-tertiary);
     border: 1px solid var(--border-color);
     border-radius: 4px;
@@ -891,10 +892,26 @@ body {
     font-size: 0.95rem;
     font-weight: 300;
     transition: var(--transition-fast);
+    color-scheme: dark; /* Forces the calendar popup into dark mode! */
+    width: 100%;
+}
+
+/* Custom styling for the tiny calendar/clock icons inside the input */
+.form-group input[type="date"]::-webkit-calendar-picker-indicator,
+.form-group input[type="time"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: var(--transition-fast);
+}
+
+.form-group input[type="date"]::-webkit-calendar-picker-indicator:hover,
+.form-group input[type="time"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus {
     outline: none;
     border-color: var(--accent-gold);
     box-shadow: 0 0 10px rgba(200, 162, 124, 0.1);
