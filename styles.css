@@ -940,6 +940,16 @@ body {
     display: block;
 }
 
+/* Disclaimer */
+.consultation-disclaimer {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 1rem;
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
 /* Button & Loading State */
 .submit-btn {
     align-self: center;
