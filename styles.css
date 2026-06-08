@@ -894,6 +894,7 @@ body {
     transition: var(--transition-fast);
     color-scheme: dark; /* Forces the calendar popup into dark mode! */
     width: 100%;
+    accent-color: var(--accent-gold);
 }
 
 /* Custom styling for the tiny calendar/clock icons inside the input */
