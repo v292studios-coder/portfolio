@@ -4,7 +4,7 @@ function doPost(e) {
   
   if (recaptchaToken !== "") {
     // REPLACE THIS WITH YOUR SECRET KEY FROM GOOGLE RECAPTCHA
-    var secretKey = "YOUR_RECAPTCHA_SECRET_KEY_HERE"; 
+    var secretKey = "6LdbzBUtAAAAALLh0BddKjGbDb36Xh3F1jAhmTwQ"; 
     
     var payload = {
       "secret": secretKey,
