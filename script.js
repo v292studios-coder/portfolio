@@ -426,4 +426,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- 11. Flatpickr Initialization ---
+    if (typeof flatpickr !== 'undefined') {
+        flatpickr("#contact-date", {
+            minDate: "today", 
+            altInput: true,
+            altFormat: "F j, Y",
+            dateFormat: "Y-m-d",
+            disableMobile: "true"
+        });
+        flatpickr("#contact-time", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            altInput: true,
+            altFormat: "h:i K",
+            disableMobile: "true"
+        });
+    }
+
 });
