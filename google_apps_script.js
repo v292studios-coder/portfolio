@@ -2,33 +2,40 @@ function doPost(e) {
   // 1. Verify reCAPTCHA token
   var recaptchaToken = e.parameter.recaptcha_token || "";
   
-  if (recaptchaToken !== "") {
-    // REPLACE THIS WITH YOUR SECRET KEY FROM GOOGLE RECAPTCHA
-    var secretKey = "6LdbzBUtAAAAALLh0BddKjGbDb36Xh3F1jAhmTwQ"; 
+  if (recaptchaToken === "") {
+    console.error("Spam blocked! Missing token.");
+    return ContentService.createTextOutput(JSON.stringify({ "result": "spam" }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
+  // REPLACE THIS WITH YOUR SECRET KEY FROM GOOGLE RECAPTCHA
+  var secretKey = "6LdbzBUtAAAAALLh0BddKjGbDb36Xh3F1jAhmTwQ"; 
+  
+  var payload = {
+    "secret": secretKey,
+    "response": recaptchaToken
+  };
+  
+  var options = {
+    "method": "post",
+    "payload": payload
+  };
+  
+  try {
+    var response = UrlFetchApp.fetch("https://www.google.com/recaptcha/api/siteverify", options);
+    var json = JSON.parse(response.getContentText());
     
-    var payload = {
-      "secret": secretKey,
-      "response": recaptchaToken
-    };
-    
-    var options = {
-      "method": "post",
-      "payload": payload
-    };
-    
-    try {
-      var response = UrlFetchApp.fetch("https://www.google.com/recaptcha/api/siteverify", options);
-      var json = JSON.parse(response.getContentText());
-      
-      // If it's a bot (score < 0.5) or verification failed, exit early.
-      if (!json.success || json.score < 0.5) {
-        console.error("Spam blocked! Score: " + json.score);
-        return ContentService.createTextOutput(JSON.stringify({ "result": "spam" }))
-          .setMimeType(ContentService.MimeType.JSON);
-      }
-    } catch (err) {
-      console.error("reCAPTCHA Error: " + err.toString());
+    // If it's a bot (score < 0.5) or verification failed, exit early.
+    if (!json.success || json.score < 0.5) {
+      console.error("Spam blocked! Score: " + json.score);
+      return ContentService.createTextOutput(JSON.stringify({ "result": "spam" }))
+        .setMimeType(ContentService.MimeType.JSON);
     }
+  } catch (err) {
+    console.error("reCAPTCHA Error: " + err.toString());
+    // Fail closed on error to be safe
+    return ContentService.createTextOutput(JSON.stringify({ "result": "error" }))
+        .setMimeType(ContentService.MimeType.JSON);
   }
 
   // 2. Setup the spreadsheet
