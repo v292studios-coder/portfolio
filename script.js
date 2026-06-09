@@ -375,33 +375,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const renderGallery = (category) => {
         if (!galleryGrid || typeof portfolioData === 'undefined') return;
         
-        galleryGrid.innerHTML = '';
+        // Add fade-out class to trigger CSS transition
+        galleryGrid.classList.add('fade-out');
         
-        const shoots = portfolioData[category] || [];
-        
-        shoots.forEach(shoot => {
-            if (shoot.id === 'studio-about-me') return; // Skip about me from gallery!
+        setTimeout(() => {
+            galleryGrid.innerHTML = '';
             
-            const html = `
-                <div class="gallery-item active">
-                    <a href="project.html?project=${shoot.id}" class="gallery-card-link">
-                        <div class="gallery-card">
-                            <img src="${shoot.coverImage}" alt="${shoot.title}" class="gallery-img" loading="lazy">
-                            <div class="card-overlay">
-                                <div class="card-info">
-                                    <span class="card-category">${category}</span>
-                                    <h3 class="card-title">${shoot.title}</h3>
-                                </div>
-                                <div class="card-action">
-                                    <span class="view-icon">➔</span>
+            const shoots = portfolioData[category] || [];
+            
+            shoots.forEach(shoot => {
+                if (shoot.id === 'studio-about-me') return; // Skip about me from gallery!
+                
+                const html = `
+                    <div class="gallery-item active">
+                        <a href="project.html?project=${shoot.id}" class="gallery-card-link">
+                            <div class="gallery-card">
+                                <img src="${shoot.coverImage}" alt="${shoot.title}" class="gallery-img" loading="lazy">
+                                <div class="card-overlay">
+                                    <div class="card-info">
+                                        <span class="card-category">${category}</span>
+                                        <h3 class="card-title">${shoot.title}</h3>
+                                    </div>
+                                    <div class="card-action">
+                                        <span class="view-icon">➔</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-            `;
-            galleryGrid.insertAdjacentHTML('beforeend', html);
-        });
+                        </a>
+                    </div>
+                `;
+                galleryGrid.insertAdjacentHTML('beforeend', html);
+            });
+            
+            // Force a browser reflow before removing the class
+            void galleryGrid.offsetWidth;
+            
+            // Remove fade-out class to trigger fade-in
+            galleryGrid.classList.remove('fade-out');
+        }, 300); // Matches the CSS transition duration
     };
 
     if (tabBtns.length > 0) {
