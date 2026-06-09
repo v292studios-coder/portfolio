@@ -372,13 +372,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryGrid = document.getElementById('gallery-grid');
     const tabBtns = document.querySelectorAll('.tab-btn');
     
-    const renderGallery = (category) => {
+    const renderGallery = (category, isInitial = false) => {
         if (!galleryGrid || typeof portfolioData === 'undefined') return;
         
-        // Add fade-out class to trigger CSS transition
-        galleryGrid.classList.add('fade-out');
-        
-        setTimeout(() => {
+        const updateDOM = () => {
             galleryGrid.innerHTML = '';
             
             const shoots = portfolioData[category] || [];
@@ -406,13 +403,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 galleryGrid.insertAdjacentHTML('beforeend', html);
             });
+        };
+
+        if (isInitial) {
+            // Synchronous render on first load to prevent layout shifts messing up #hash scrolling
+            updateDOM();
+        } else {
+            // Animated render for tab switching
+            galleryGrid.classList.add('fade-out');
             
-            // Force a browser reflow before removing the class
-            void galleryGrid.offsetWidth;
-            
-            // Remove fade-out class to trigger fade-in
-            galleryGrid.classList.remove('fade-out');
-        }, 300); // Matches the CSS transition duration
+            setTimeout(() => {
+                updateDOM();
+                
+                // Force a browser reflow before removing the class
+                void galleryGrid.offsetWidth;
+                
+                // Remove fade-out class to trigger fade-in
+                galleryGrid.classList.remove('fade-out');
+            }, 300); // Matches the CSS transition duration
+        }
     };
 
     if (tabBtns.length > 0) {
@@ -422,12 +431,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.classList.add('active');
                 
                 const category = btn.getAttribute('data-tab');
-                renderGallery(category);
+                renderGallery(category, false);
             });
         });
         
-        // Initial render
-        renderGallery('Studio');
+        // Initial render (synchronous)
+        renderGallery('Studio', true);
     }
 
     // --- FAQ Accordion Logic ---
