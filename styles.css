@@ -1647,3 +1647,56 @@ span.flatpickr-weekday {
 .flatpickr-time input.flatpickr-hour {
     font-weight: bold;
 }
+
+/* Hide reCAPTCHA badge */
+.grecaptcha-badge { 
+    visibility: hidden; 
+}
+
+/* Floating Book Now Button */
+.floating-book-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--gold-color);
+    color: var(--black-bg);
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(222, 185, 146, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.floating-book-btn:hover {
+    background-color: #fff;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+.floating-book-btn svg {
+    margin-right: 2px;
+}
+
+/* reCAPTCHA Disclaimer Text */
+.recaptcha-disclaimer {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 15px;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.recaptcha-disclaimer a {
+    color: var(--gold-color);
+    text-decoration: none;
+}
+
+.recaptcha-disclaimer a:hover {
+    text-decoration: underline;
+}
