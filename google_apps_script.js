@@ -33,8 +33,8 @@ function doPost(e) {
     }
   } catch (err) {
     console.error("reCAPTCHA Error: " + err.toString());
-    // Fail closed on error to be safe
-    return ContentService.createTextOutput(JSON.stringify({ "result": "error" }))
+    // Fail closed on error to be safe, but return the message for debugging
+    return ContentService.createTextOutput(JSON.stringify({ "result": "error", "error": err.toString() }))
         .setMimeType(ContentService.MimeType.JSON);
   }
 
