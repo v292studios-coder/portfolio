@@ -687,43 +687,6 @@ body {
     font-weight: 600;
 }
 
-.equipment-box {
-    margin-top: 2rem;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
-    border-left: 3px solid var(--accent-gold);
-    padding: 2rem;
-    border-radius: 4px;
-}
-
-.equipment-title {
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 3px;
-    margin-bottom: 1.2rem;
-    color: var(--text-primary);
-}
-
-.equipment-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-}
-
-.equipment-list li {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    font-weight: 300;
-}
-
-.equipment-list li strong {
-    color: var(--accent-gold);
-    font-weight: 500;
-    margin-right: 0.25rem;
-}
-
 /* --- About Carousel --- */
 .about-carousel {
     display: flex;
