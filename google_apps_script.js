@@ -94,8 +94,8 @@ function doPost(e) {
       // Check if the date is valid (prevent year 60615 errors!)
       if (!isNaN(eventStart.getTime()) && eventStart.getFullYear() < 3000) {
         
-        // Event runs for 1 hour
-        var eventEnd = new Date(eventStart.getTime() + (60 * 60 * 1000));
+        // Event runs for 15 minutes
+        var eventEnd = new Date(eventStart.getTime() + (15 * 60 * 1000));
         
         var eventTitle = "Consultation: " + name + " (" + subject + ")";
         var eventDescription = "Name: " + name + "\n" +
