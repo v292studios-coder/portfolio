@@ -161,3 +161,9 @@ function runAuthorizationCheck() {
   
   Logger.log("Authorization check complete!");
 }
+
+// If runAuthorizationCheck fails silently without prompting for permissions, 
+// select and run this function in the editor. It will force a permission prompt if scopes are automatic.
+function forceAuthorize() {
+  UrlFetchApp.fetch("https://www.google.com");
+}
