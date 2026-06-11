@@ -133,3 +133,31 @@ function doPost(e) {
   return ContentService.createTextOutput(JSON.stringify({ "result": "success" }))
     .setMimeType(ContentService.MimeType.JSON);
 }
+
+// RUN THIS FUNCTION in the Google Apps Script editor to authorize all permissions (Spreadsheet, Calendar, UrlFetch)!
+function runAuthorizationCheck() {
+  Logger.log("Starting authorization check...");
+  
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet();
+    Logger.log("SpreadsheetApp is authorized.");
+  } catch (e) {
+    Logger.log("SpreadsheetApp error: " + e.toString());
+  }
+  
+  try {
+    var cal = CalendarApp.getDefaultCalendar();
+    Logger.log("CalendarApp is authorized.");
+  } catch (e) {
+    Logger.log("CalendarApp error: " + e.toString());
+  }
+  
+  try {
+    var response = UrlFetchApp.fetch("https://www.google.com/recaptcha/api/siteverify");
+    Logger.log("UrlFetchApp is authorized.");
+  } catch (e) {
+    Logger.log("UrlFetchApp error: " + e.toString());
+  }
+  
+  Logger.log("Authorization check complete!");
+}
