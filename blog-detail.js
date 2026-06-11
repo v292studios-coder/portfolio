@@ -26,13 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Populate DOM elements
     const postCategory = document.getElementById('post-category');
-    const postDate = document.getElementById('post-date');
     const postTitle = document.getElementById('post-title');
     const postHero = document.getElementById('post-hero');
     const postBody = document.getElementById('post-body');
 
     if (postCategory) postCategory.textContent = post.category;
-    if (postDate) postDate.textContent = post.date;
     if (postTitle) postTitle.textContent = post.title;
     if (postHero) {
         postHero.src = post.coverImage;

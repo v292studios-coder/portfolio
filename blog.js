@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="blog-card-content">
                         <div class="blog-card-meta">
                             <span class="blog-card-category">${post.category}</span>
-                            <span class="blog-card-date">${post.date}</span>
                         </div>
                         <h2 class="blog-card-title">${post.title}</h2>
                         <p class="blog-card-excerpt">${post.excerpt}</p>
