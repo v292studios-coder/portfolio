@@ -151,5 +151,31 @@ const portfolioData = {
                 "images/Photos/headshots/pat/DSC01347-Edit.png"
             ]
         }
+    ],
+    "Beauty": [],
+    "Automotive": [
+        {
+            "id": "automotive-shoot",
+            "title": "Automotive",
+            "category": "Automotive",
+            "coverImage": "images/Photos/Automotive/cover-DSC01618.jpg",
+            "images": [
+                "images/Photos/Automotive/cover-DSC01618.jpg",
+                "images/Photos/Automotive/DSC01634.jpg",
+                "images/Photos/Automotive/DSC01635.jpg",
+                "images/Photos/Automotive/DSC01661.jpg",
+                "images/Photos/Automotive/DSC01684.jpg",
+                "images/Photos/Automotive/DSC01715.jpg",
+                "images/Photos/Automotive/DSC01726.jpg",
+                "images/Photos/Automotive/DSC01749.jpg",
+                "images/Photos/Automotive/DSC01772.jpg",
+                "images/Photos/Automotive/DSC01787.jpg",
+                "images/Photos/Automotive/DSC01826.jpg",
+                "images/Photos/Automotive/DSC01833.jpg",
+                "images/Photos/Automotive/DSC01875.jpg",
+                "images/Photos/Automotive/DSC01881.jpg",
+                "images/Photos/Automotive/DSC01891.jpg"
+            ]
+        }
     ]
 };
