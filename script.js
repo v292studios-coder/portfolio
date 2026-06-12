@@ -380,29 +380,55 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const shoots = portfolioData[category] || [];
             
-            shoots.forEach(shoot => {
-                if (shoot.id === 'studio-about-me') return; // Skip about me from gallery!
-                
-                const html = `
-                    <div class="gallery-item active">
-                        <a href="project.html?project=${shoot.id}" class="gallery-card-link">
-                            <div class="gallery-card">
-                                <img src="${shoot.coverImage}" alt="${shoot.title}" class="gallery-img" loading="lazy">
-                                <div class="card-overlay">
-                                    <div class="card-info">
-                                        <span class="card-category">${category}</span>
-                                        <h3 class="card-title">${shoot.title}</h3>
-                                    </div>
-                                    <div class="card-action">
-                                        <span class="view-icon">➔</span>
+            if (category === 'Automotive') {
+                // For Automotive, display all photos directly in the grid!
+                const automotiveShoot = shoots.find(s => s.id === 'automotive-shoot');
+                if (automotiveShoot) {
+                    automotiveShoot.images.forEach((imgFilename, idx) => {
+                        const html = `
+                            <div class="gallery-item active automotive-item" data-index="${idx}" style="cursor: pointer;">
+                                <div class="gallery-card">
+                                    <img src="${imgFilename}" alt="Automotive Frame ${idx + 1}" class="gallery-img" loading="lazy">
+                                    <div class="card-overlay">
+                                        <div class="card-info">
+                                            <span class="card-category">Automotive</span>
+                                            <h3 class="card-title">Frame #${idx + 1}</h3>
+                                        </div>
+                                        <div class="card-action">
+                                            <span class="view-icon">+</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                `;
-                galleryGrid.insertAdjacentHTML('beforeend', html);
-            });
+                        `;
+                        galleryGrid.insertAdjacentHTML('beforeend', html);
+                    });
+                }
+            } else {
+                shoots.forEach(shoot => {
+                    if (shoot.id === 'studio-about-me') return; // Skip about me from gallery!
+                    
+                    const html = `
+                        <div class="gallery-item active">
+                            <a href="project.html?project=${shoot.id}" class="gallery-card-link">
+                                <div class="gallery-card">
+                                    <img src="${shoot.coverImage}" alt="${shoot.title}" class="gallery-img" loading="lazy">
+                                    <div class="card-overlay">
+                                        <div class="card-info">
+                                            <span class="card-category">${category}</span>
+                                            <h3 class="card-title">${shoot.title}</h3>
+                                        </div>
+                                        <div class="card-action">
+                                            <span class="view-icon">➔</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    `;
+                    galleryGrid.insertAdjacentHTML('beforeend', html);
+                });
+            }
         };
 
         if (isInitial) {
@@ -437,6 +463,138 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Initial render (synchronous)
         renderGallery('Studio', true);
+    }
+
+    // --- Lightbox Modal for Homepage Automotive Gallery ---
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+    
+    const lbCat = document.getElementById('lightbox-cat');
+    const lbTitle = document.getElementById('lightbox-title');
+    const lbLoc = document.getElementById('lightbox-loc');
+
+    let currentPhotoIndex = 0;
+    let automotiveImages = [];
+
+    const loadLightboxPhoto = (index) => {
+        currentPhotoIndex = index;
+        const imgFilename = automotiveImages[index];
+        
+        lightboxImg.style.opacity = '0';
+        lightboxImg.style.transform = 'scale(0.98)';
+        
+        lbCat.textContent = 'Automotive';
+        lbTitle.textContent = `Automotive #${index + 1}`;
+        lbLoc.textContent = 'On Location';
+        
+        lightboxImg.src = imgFilename;
+        lightboxImg.alt = `Automotive - Frame ${index + 1}`;
+        
+        lightboxImg.onload = () => {
+            lightboxImg.style.opacity = '1';
+            lightboxImg.style.transform = 'scale(1)';
+        };
+    };
+
+    const openLightbox = (index) => {
+        const automotiveShoot = (typeof portfolioData !== 'undefined' && portfolioData['Automotive']) ? portfolioData['Automotive'].find(s => s.id === 'automotive-shoot') : null;
+        if (!automotiveShoot) return;
+        automotiveImages = automotiveShoot.images;
+        
+        loadLightboxPhoto(index);
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+        if (!lightbox) return;
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
+
+    const navigateLightbox = (direction) => {
+        if (!automotiveImages.length) return;
+        let newIdx = currentPhotoIndex;
+        if (direction === 'next') {
+            newIdx = (currentPhotoIndex + 1) % automotiveImages.length;
+        } else {
+            newIdx = (currentPhotoIndex - 1 + automotiveImages.length) % automotiveImages.length;
+        }
+        loadLightboxPhoto(newIdx);
+    };
+
+    if (galleryGrid) {
+        galleryGrid.addEventListener('click', (e) => {
+            const item = e.target.closest('.automotive-item');
+            if (item) {
+                const index = parseInt(item.getAttribute('data-index'));
+                openLightbox(index);
+            }
+        });
+    }
+
+    if (lightbox) {
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', () => navigateLightbox('prev'));
+        lightboxNext.addEventListener('click', () => navigateLightbox('next'));
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') navigateLightbox('next');
+            if (e.key === 'ArrowLeft') navigateLightbox('prev');
+        });
+
+        // Swipe Gestures Support
+        let dragStartX = 0;
+        let isDragging = false;
+
+        const handleDragStart = (x) => {
+            dragStartX = x;
+            isDragging = true;
+        };
+
+        const handleDragEnd = (x) => {
+            if (!isDragging) return;
+            isDragging = false;
+            const diffX = x - dragStartX;
+            const threshold = 60;
+            if (Math.abs(diffX) > threshold) {
+                if (diffX > 0) {
+                    navigateLightbox('prev');
+                } else {
+                    navigateLightbox('next');
+                }
+            }
+        };
+
+        lightboxImg.addEventListener('touchstart', (e) => {
+            handleDragStart(e.touches[0].clientX);
+        }, { passive: true });
+
+        lightboxImg.addEventListener('touchend', (e) => {
+            handleDragEnd(e.changedTouches[0].clientX);
+        }, { passive: true });
+
+        lightboxImg.addEventListener('mousedown', (e) => {
+            handleDragStart(e.clientX);
+            e.preventDefault();
+        });
+
+        window.addEventListener('mouseup', (e) => {
+            if (isDragging) {
+                handleDragEnd(e.clientX);
+            }
+        });
     }
 
     // --- FAQ Accordion Logic ---

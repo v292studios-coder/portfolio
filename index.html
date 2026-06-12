@@ -297,6 +297,30 @@
         </div>
     </footer>
 
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+        
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous Image">
+            <svg viewBox="0 0 24 24" class="svg-icon"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        
+        <div class="lightbox-content-wrapper">
+            <img src="" alt="" class="lightbox-img" id="lightbox-img" draggable="false">
+            <div class="lightbox-caption" id="lightbox-caption">
+                <div class="caption-details">
+                    <span class="caption-cat" id="lightbox-cat">Category</span>
+                    <h4 class="caption-title" id="lightbox-title">Image Name</h4>
+                    <p class="caption-loc" id="lightbox-loc">Location</p>
+                </div>
+            </div>
+        </div>
+        
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next Image">
+            <svg viewBox="0 0 24 24" class="svg-icon"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+    </div>
+
     <!-- Floating Book Now Button -->
     <a href="#contact" class="floating-book-btn">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
