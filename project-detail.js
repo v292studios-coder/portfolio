@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 project = {
                     title: shoot.title,
                     category: shoot.category,
-                    description: "A showcase of portrait, event, and creative lifestyle photography projects.",
+                    description: "A showcase of portrait, automotive, and creative photography projects.",
                     location: "Studio Session",
                     camera: "Sony A7R V",
                     lens: "FE 85mm f/1.4 GM",
