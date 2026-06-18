@@ -1,86 +1,100 @@
 const portfolioData = {
     "Studio": [
         {
-            "id": "studio-ebonie",
-            "title": "Ebonie",
+            "id": "studio-ebonie-shoot",
+            "title": "Ebonie Shoot",
             "category": "Studio",
-            "coverImage": "images/Photos/Studio/Ebonie/cover-IMG_6931-Edit.png",
+            "coverImage": "images/Photos/Studio/Ebonie Shoot/cover-IMG_6931-Edit.png",
             "images": [
-                "images/Photos/Studio/Ebonie/cover-IMG_6931-Edit.png",
-                "images/Photos/Studio/Ebonie/IMG_6829-Edit.png",
-                "images/Photos/Studio/Ebonie/IMG_6842-Edit.png",
-                "images/Photos/Studio/Ebonie/IMG_6980-Edit.png",
-                "images/Photos/Studio/Ebonie/IMG_7024-Edit.png",
-                "images/Photos/Studio/Ebonie/IMG_7097-Edit.png"
+                "images/Photos/Studio/Ebonie Shoot/cover-IMG_6931-Edit.png",
+                "images/Photos/Studio/Ebonie Shoot/IMG_6829-Edit.png",
+                "images/Photos/Studio/Ebonie Shoot/IMG_6842-Edit.png",
+                "images/Photos/Studio/Ebonie Shoot/IMG_6980-Edit.png",
+                "images/Photos/Studio/Ebonie Shoot/IMG_7024-Edit.png",
+                "images/Photos/Studio/Ebonie Shoot/IMG_7097-Edit.png"
             ]
         },
         {
-            "id": "studio-jay",
-            "title": "Jay",
+            "id": "studio-jay-20th-birthday-shoot",
+            "title": "Jay 20th Birthday Shoot",
             "category": "Studio",
-            "coverImage": "images/Photos/Studio/Jay/cover-IMG_5817-Edit.jpg",
+            "coverImage": "images/Photos/Studio/Jay 20th Birthday Shoot/cover-IMG_5817-Edit.jpg",
             "images": [
-                "images/Photos/Studio/Jay/cover-IMG_5817-Edit.jpg",
-                "images/Photos/Studio/Jay/IMG_5844-Edit-2.jpg",
-                "images/Photos/Studio/Jay/IMG_5854-Edit.jpg",
-                "images/Photos/Studio/Jay/IMG_5858-Edit.jpg",
-                "images/Photos/Studio/Jay/IMG_5868-Edit.jpg"
+                "images/Photos/Studio/Jay 20th Birthday Shoot/cover-IMG_5817-Edit.jpg",
+                "images/Photos/Studio/Jay 20th Birthday Shoot/IMG_5844-Edit-2.jpg",
+                "images/Photos/Studio/Jay 20th Birthday Shoot/IMG_5854-Edit.jpg",
+                "images/Photos/Studio/Jay 20th Birthday Shoot/IMG_5858-Edit.jpg",
+                "images/Photos/Studio/Jay 20th Birthday Shoot/IMG_5868-Edit.jpg"
             ]
         },
         {
-            "id": "studio-rose",
-            "title": "Rose",
+            "id": "studio-rose-19th-birthday-shoot",
+            "title": "Rose 19th Birthday Shoot",
             "category": "Studio",
-            "coverImage": "images/Photos/Studio/Rose/cover-IMG_5577-Edit.jpg",
+            "coverImage": "images/Photos/Studio/Rose 19th Birthday Shoot/cover-IMG_5577-Edit.jpg",
             "images": [
-                "images/Photos/Studio/Rose/cover-IMG_5577-Edit.jpg",
-                "images/Photos/Studio/Rose/IMG_5588-Edit.jpg",
-                "images/Photos/Studio/Rose/IMG_5616-Edit.jpg"
+                "images/Photos/Studio/Rose 19th Birthday Shoot/cover-IMG_5577-Edit.jpg",
+                "images/Photos/Studio/Rose 19th Birthday Shoot/IMG_5588-Edit.jpg",
+                "images/Photos/Studio/Rose 19th Birthday Shoot/IMG_5616-Edit.jpg"
             ]
         },
         {
-            "id": "studio-santos-1",
-            "title": "Santos 1",
+            "id": "studio-rose-21st-birthday-shoot",
+            "title": "Rose 21st Birthday Shoot",
             "category": "Studio",
-            "coverImage": "images/Photos/Studio/Santos 1/cover-IMG_6392.jpg",
+            "coverImage": "images/Photos/Studio/Rose 21st Birthday Shoot/DSC02222-Edit.jpg",
             "images": [
-                "images/Photos/Studio/Santos 1/cover-IMG_6392.jpg",
-                "images/Photos/Studio/Santos 1/IMG_6250-Edit.jpg",
-                "images/Photos/Studio/Santos 1/IMG_6267-Edit.jpg",
-                "images/Photos/Studio/Santos 1/IMG_6300-Edit.jpg",
-                "images/Photos/Studio/Santos 1/IMG_6301-Edit.jpg",
-                "images/Photos/Studio/Santos 1/IMG_6312.jpg",
-                "images/Photos/Studio/Santos 1/IMG_6318-Edit.jpg"
+                "images/Photos/Studio/Rose 21st Birthday Shoot/DSC02222-Edit.jpg",
+                "images/Photos/Studio/Rose 21st Birthday Shoot/DSC02332-Edit.jpg",
+                "images/Photos/Studio/Rose 21st Birthday Shoot/DSC02383-Edit.jpg",
+                "images/Photos/Studio/Rose 21st Birthday Shoot/DSC02413-Edit.jpg",
+                "images/Photos/Studio/Rose 21st Birthday Shoot/DSC02431-Edit.jpg",
+                "images/Photos/Studio/Rose 21st Birthday Shoot/DSC02485-Edit.jpg"
             ]
         },
         {
-            "id": "studio-santos-2",
-            "title": "Santos 2",
+            "id": "studio-santos-shoot-1",
+            "title": "Santos Shoot 1",
             "category": "Studio",
-            "coverImage": "images/Photos/Studio/Santos 2/cover-IMG_6500-Recovered.jpg",
+            "coverImage": "images/Photos/Studio/Santos Shoot 1/cover-IMG_6392.jpg",
             "images": [
-                "images/Photos/Studio/Santos 2/cover-IMG_6500-Recovered.jpg",
-                "images/Photos/Studio/Santos 2/IMG_6415-Edit.jpg",
-                "images/Photos/Studio/Santos 2/IMG_6447-Edit.jpg",
-                "images/Photos/Studio/Santos 2/IMG_6482-Edit.jpg",
-                "images/Photos/Studio/Santos 2/IMG_6516-Edit.jpg",
-                "images/Photos/Studio/Santos 2/IMG_6533-Edit.jpg"
+                "images/Photos/Studio/Santos Shoot 1/cover-IMG_6392.jpg",
+                "images/Photos/Studio/Santos Shoot 1/IMG_6250-Edit.jpg",
+                "images/Photos/Studio/Santos Shoot 1/IMG_6267-Edit.jpg",
+                "images/Photos/Studio/Santos Shoot 1/IMG_6300-Edit.jpg",
+                "images/Photos/Studio/Santos Shoot 1/IMG_6301-Edit.jpg",
+                "images/Photos/Studio/Santos Shoot 1/IMG_6312.jpg",
+                "images/Photos/Studio/Santos Shoot 1/IMG_6318-Edit.jpg"
             ]
         },
         {
-            "id": "studio-vishnu",
-            "title": "Vishnu",
+            "id": "studio-santos-shoot-2",
+            "title": "Santos Shoot 2",
             "category": "Studio",
-            "coverImage": "images/Photos/Studio/Vishnu/cover-IMG_5353-Edit.jpg",
+            "coverImage": "images/Photos/Studio/Santos Shoot 2/cover-IMG_6500-Recovered.jpg",
             "images": [
-                "images/Photos/Studio/Vishnu/cover-IMG_5353-Edit.jpg",
-                "images/Photos/Studio/Vishnu/IMG_5357-Edit.jpg",
-                "images/Photos/Studio/Vishnu/IMG_5383-Edit.jpg",
-                "images/Photos/Studio/Vishnu/IMG_5420-Edit.jpg",
-                "images/Photos/Studio/Vishnu/IMG_5434-Edit.jpg",
-                "images/Photos/Studio/Vishnu/IMG_5436-Edit.jpg",
-                "images/Photos/Studio/Vishnu/IMG_5440-Edit.jpg",
-                "images/Photos/Studio/Vishnu/IMG_5455-Edit.jpg"
+                "images/Photos/Studio/Santos Shoot 2/cover-IMG_6500-Recovered.jpg",
+                "images/Photos/Studio/Santos Shoot 2/IMG_6415-Edit.jpg",
+                "images/Photos/Studio/Santos Shoot 2/IMG_6447-Edit.jpg",
+                "images/Photos/Studio/Santos Shoot 2/IMG_6482-Edit.jpg",
+                "images/Photos/Studio/Santos Shoot 2/IMG_6516-Edit.jpg",
+                "images/Photos/Studio/Santos Shoot 2/IMG_6533-Edit.jpg"
+            ]
+        },
+        {
+            "id": "studio-vishnu-25th-birthday-shoot",
+            "title": "Vishnu 25th Birthday Shoot",
+            "category": "Studio",
+            "coverImage": "images/Photos/Studio/Vishnu 25th Birthday Shoot/cover-IMG_5353-Edit.jpg",
+            "images": [
+                "images/Photos/Studio/Vishnu 25th Birthday Shoot/cover-IMG_5353-Edit.jpg",
+                "images/Photos/Studio/Vishnu 25th Birthday Shoot/IMG_5357-Edit.jpg",
+                "images/Photos/Studio/Vishnu 25th Birthday Shoot/IMG_5383-Edit.jpg",
+                "images/Photos/Studio/Vishnu 25th Birthday Shoot/IMG_5420-Edit.jpg",
+                "images/Photos/Studio/Vishnu 25th Birthday Shoot/IMG_5434-Edit.jpg",
+                "images/Photos/Studio/Vishnu 25th Birthday Shoot/IMG_5436-Edit.jpg",
+                "images/Photos/Studio/Vishnu 25th Birthday Shoot/IMG_5440-Edit.jpg",
+                "images/Photos/Studio/Vishnu 25th Birthday Shoot/IMG_5455-Edit.jpg"
             ]
         },
         {
