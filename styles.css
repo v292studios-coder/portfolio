@@ -1505,6 +1505,97 @@ body {
     }
 }
 
+/* --- Add-ons / Additional Services --- */
+.addons-section {
+    margin-top: 6rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.addons-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.addons-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 6px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+
+.addons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.addon-card {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    transition: var(--transition-smooth);
+}
+
+.addon-card:hover {
+    border-color: var(--border-gold);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.addon-info {
+    flex-grow: 1;
+}
+
+.addon-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.addon-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.addon-price {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--accent-gold);
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .addons-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .addon-card {
+        padding: 1.5rem;
+    }
+    
+    .addons-title {
+        font-size: 1.5rem;
+        letter-spacing: 4px;
+    }
+}
+
 /* Gallery Tabs */
 .gallery-tabs {
     display: flex;
