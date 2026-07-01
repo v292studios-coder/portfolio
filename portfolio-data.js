@@ -143,6 +143,21 @@ const portfolioData = {
             ]
         },
         {
+            "id": "headshots-beauty-test-shoot",
+            "title": "Beauty Test Shoot",
+            "category": "headshots",
+            "coverImage": "images/Photos/headshots/Beauty Test Shoot/cover-DSC02685-Edit.jpg",
+            "images": [
+                "images/Photos/headshots/Beauty Test Shoot/cover-DSC02685-Edit.jpg",
+                "images/Photos/headshots/Beauty Test Shoot/DSC02627-Edit.jpg",
+                "images/Photos/headshots/Beauty Test Shoot/DSC02691-Edit.jpg",
+                "images/Photos/headshots/Beauty Test Shoot/DSC02780-Edit.jpg",
+                "images/Photos/headshots/Beauty Test Shoot/DSC03012-Edit.jpg",
+                "images/Photos/headshots/Beauty Test Shoot/DSC03138-Edit.jpg",
+                "images/Photos/headshots/Beauty Test Shoot/DSC03148-Edit.jpg"
+            ]
+        },
+        {
             "id": "headshots-ebonie",
             "title": "ebonie",
             "category": "headshots",
