@@ -28,6 +28,21 @@ const portfolioData = {
             ]
         },
         {
+            "id": "studio-jon",
+            "title": "Jon",
+            "category": "Studio",
+            "coverImage": "images/Photos/Studio/Jon/cover-Edit-Ver-2 (4 of 6).jpg",
+            "images": [
+                "images/Photos/Studio/Jon/cover-Edit-Ver-2 (4 of 6).jpg",
+                "images/Photos/Studio/Jon/Edit-Ver-2 (1 of 1).jpg",
+                "images/Photos/Studio/Jon/Edit-Ver-2 (1 of 6).jpg",
+                "images/Photos/Studio/Jon/Edit-Ver-2 (2 of 6).jpg",
+                "images/Photos/Studio/Jon/Edit-Ver-2 (3 of 6).jpg",
+                "images/Photos/Studio/Jon/Edit-Ver-2 (5 of 6).jpg",
+                "images/Photos/Studio/Jon/Edit-Ver-2 (6 of 6).jpg"
+            ]
+        },
+        {
             "id": "studio-rose-19th-birthday-shoot",
             "title": "Rose 19th Birthday Shoot",
             "category": "Studio",
