@@ -113,6 +113,23 @@ const portfolioData = {
             ]
         },
         {
+            "id": "studio-vishnu-roses-photoshoot",
+            "title": "Vishnu Roses Photoshoot",
+            "category": "Studio",
+            "coverImage": "images/Photos/Studio/Vishnu Roses Photoshoot/cover-DSC08516-Edit.jpg",
+            "images": [
+                "images/Photos/Studio/Vishnu Roses Photoshoot/cover-DSC08516-Edit.jpg",
+                "images/Photos/Studio/Vishnu Roses Photoshoot/DSC08508-2.jpg",
+                "images/Photos/Studio/Vishnu Roses Photoshoot/DSC08553-Edit-2-Edit-Edit.jpg",
+                "images/Photos/Studio/Vishnu Roses Photoshoot/DSC08559-Edit-Edit.jpg",
+                "images/Photos/Studio/Vishnu Roses Photoshoot/DSC08568-Edit-Edit.jpg",
+                "images/Photos/Studio/Vishnu Roses Photoshoot/DSC08576-Edit-Edit.jpg",
+                "images/Photos/Studio/Vishnu Roses Photoshoot/DSC08606-Edit-Edit-2.jpg",
+                "images/Photos/Studio/Vishnu Roses Photoshoot/DSC08640-Edit-Edit.jpg",
+                "images/Photos/Studio/Vishnu Roses Photoshoot/DSC08665-Edit.jpg"
+            ]
+        },
+        {
             "id": "studio-about-me",
             "title": "about me",
             "category": "Studio",
@@ -174,25 +191,36 @@ const portfolioData = {
         },
         {
             "id": "headshots-ebonie",
-            "title": "ebonie",
+            "title": "Ebonie",
             "category": "headshots",
-            "coverImage": "images/Photos/headshots/ebonie/cover-IMG_6734-Edit.jpg",
+            "coverImage": "images/Photos/headshots/Ebonie/cover-IMG_6734-Edit.jpg",
             "images": [
-                "images/Photos/headshots/ebonie/cover-IMG_6734-Edit.jpg",
-                "images/Photos/headshots/ebonie/IMG_6731-Edit.jpg",
-                "images/Photos/headshots/ebonie/IMG_6732-Edit.jpg"
+                "images/Photos/headshots/Ebonie/cover-IMG_6734-Edit.jpg",
+                "images/Photos/headshots/Ebonie/IMG_6731-Edit.jpg",
+                "images/Photos/headshots/Ebonie/IMG_6732-Edit.jpg"
             ]
         },
         {
             "id": "headshots-pat",
-            "title": "pat",
+            "title": "Pat",
             "category": "headshots",
-            "coverImage": "images/Photos/headshots/pat/cover-DSC01291-Edit.png",
+            "coverImage": "images/Photos/headshots/Pat/cover-DSC01291-Edit.png",
             "images": [
-                "images/Photos/headshots/pat/cover-DSC01291-Edit.png",
-                "images/Photos/headshots/pat/DSC01224-Edit-3.png",
-                "images/Photos/headshots/pat/DSC01319-Edit.png",
-                "images/Photos/headshots/pat/DSC01347-Edit.png"
+                "images/Photos/headshots/Pat/cover-DSC01291-Edit.png",
+                "images/Photos/headshots/Pat/DSC01224-Edit-3.png",
+                "images/Photos/headshots/Pat/DSC01319-Edit.png",
+                "images/Photos/headshots/Pat/DSC01347-Edit.png"
+            ]
+        },
+        {
+            "id": "headshots-vinay",
+            "title": "Vinay",
+            "category": "headshots",
+            "coverImage": "images/Photos/headshots/Vinay/cover-DSC07757.jpg",
+            "images": [
+                "images/Photos/headshots/Vinay/cover-DSC07757.jpg",
+                "images/Photos/headshots/Vinay/DSC07740.jpg",
+                "images/Photos/headshots/Vinay/DSC07761.jpg"
             ]
         }
     ],
