@@ -44,10 +44,9 @@ function doPost(e) {
   // 3. Parse the incoming data from the website form
   var name = e.parameter.name || "";
   var email = e.parameter.email || "";
-  var dateStr = e.parameter.date || ""; // e.g. "2026-06-16"
-  var timeStr = e.parameter.time || ""; // e.g. "15:00"
   var subject = e.parameter.subject || "";
   var message = e.parameter.message || "";
+  var photosJson = e.parameter.photos_json || "";
   
   // 3. Format the data for the sheet
   var timestamp = new Date();
@@ -60,8 +59,8 @@ function doPost(e) {
     email,               // Email
     subject,             // Subject
     message,             // Message
-    dateStr,             // Preffered Consultation Date
-    timeStr              // Preffered Consultation Time
+    "",                  // Preffered Consultation Date (Removed)
+    ""                   // Preffered Consultation Time (Removed)
   ];
   
   // 4. Write data to the spreadsheet
@@ -70,63 +69,36 @@ function doPost(e) {
   // 5. Send an email notification to yourself
   try {
     var adminEmail = "v292studios@gmail.com"; // Hardcoded studio email
-    var emailSubject = "[Consultation Sessions] New Booking Request: " + name;
-    var emailBody = "You have a new consultation request from your website!\n\n" +
+    var emailSubject = "[Inquiry] New Website Message: " + name;
+    var emailBody = "You have a new message from your website!\n\n" +
                     "Name: " + name + "\n" +
                     "Email: " + email + "\n" +
-                    "Date: " + dateStr + "\n" +
-                    "Time: " + timeStr + "\n" +
                     "Subject: " + subject + "\n\n" +
-                    "Message:\n" + message;
+                    "Message:\n" + message + "\n\n" +
+                    (attachments.length > 0 ? "Attached Reference Photos: " + attachments.length : "No reference photos attached.");
                     
-    MailApp.sendEmail(adminEmail, emailSubject, emailBody);
-  } catch (emailError) {
-    console.error("Email Error: " + emailError.toString());
-  }
-
-  // 6. Try creating a Calendar Event safely
-  try {
-    if (dateStr && timeStr) {
-      // Create a valid Javascript Date object from the inputs
-      // dateStr is 'YYYY-MM-DD', timeStr is 'HH:MM'
-      var eventStart = new Date(dateStr + "T" + timeStr + ":00");
-      
-      // Check if the date is valid (prevent year 60615 errors!)
-      if (!isNaN(eventStart.getTime()) && eventStart.getFullYear() < 3000) {
-        
-        // Event runs for 15 minutes
-        var eventEnd = new Date(eventStart.getTime() + (15 * 60 * 1000));
-        
-        var eventTitle = "Consultation: " + name + " (" + subject + ")";
-        var eventDescription = "Name: " + name + "\n" +
-                               "Email: " + email + "\n" +
-                               "Subject: " + subject + "\n\n" +
-                               "Message:\n" + message;
-        
-        // Create the event on your specific photography calendar
-        // REPLACE 'YOUR_CALENDAR_ID_HERE' WITH YOUR ACTUAL CALENDAR ID
-        // (Find this in Google Calendar -> Settings -> click your photography calendar -> Integrate calendar -> Calendar ID)
-        var calendarId = "5db3fe0e4d0e40d31cd43b29946faa0c51e85d56bf5d7cc63eb27c95d3b20faf@group.calendar.google.com"; 
-        var myCalendar = CalendarApp.getCalendarById(calendarId);
-        
-        // Fallback to default if the ID isn't set properly yet
-        if (!myCalendar) {
-          myCalendar = CalendarApp.getDefaultCalendar();
+    var attachments = [];
+    if (photosJson) {
+      try {
+        var files = JSON.parse(photosJson);
+        for (var i = 0; i < files.length; i++) {
+          var blob = Utilities.newBlob(Utilities.base64Decode(files[i].data), files[i].mimeType, files[i].name);
+          attachments.push(blob);
         }
-
-        myCalendar.createEvent(
-          eventTitle, 
-          eventStart, 
-          eventEnd,
-          { description: eventDescription }
-        );
-      } else {
-        console.error("Invalid date provided, skipping calendar event: " + dateStr);
+      } catch (err) {
+        console.error("Error parsing photos: " + err);
       }
     }
-  } catch (error) {
-    // Log the error silently so the form submission doesn't fail on the website side
-    console.error("Calendar Error: " + error.toString());
+                    
+    MailApp.sendEmail({
+      to: adminEmail,
+      replyTo: email,
+      subject: emailSubject,
+      body: emailBody,
+      attachments: attachments
+    });
+  } catch (emailError) {
+    console.error("Email Error: " + emailError.toString());
   }
 
   // 6. Return a success message back to the website

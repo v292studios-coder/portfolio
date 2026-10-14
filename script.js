@@ -152,11 +152,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const nameField = document.getElementById('contact-name');
             const emailField = document.getElementById('contact-email');
-            const dateField = document.getElementById('contact-date');
-            const timeField = document.getElementById('contact-time');
             const subjectField = document.getElementById('contact-subject');
             const messageField = document.getElementById('contact-message');
             const websiteField = document.getElementById('contact-website');
+            const photosField = document.getElementById('contact-photos');
             
             // Honeypot check for bots
             if (websiteField && websiteField.value !== '') {
@@ -172,12 +171,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 return regex.test(val);
             });
-            const isDateValid = validateField(dateField, 'error-date', val => val.length > 0);
-            const isTimeValid = validateField(timeField, 'error-time', val => val.length > 0);
             const isSubjectValid = validateField(subjectField, 'error-subject', val => val.length > 0);
             const isMessageValid = validateField(messageField, 'error-message', val => val.length > 0);
             
-            if (isNameValid && isEmailValid && isDateValid && isTimeValid && isSubjectValid && isMessageValid) {
+            let isPhotosValid = true;
+            if (photosField && photosField.files.length > 5) {
+                isPhotosValid = false;
+                const formGroup = photosField.closest('.form-group');
+                if (formGroup) formGroup.classList.add('invalid');
+            } else if (photosField) {
+                const formGroup = photosField.closest('.form-group');
+                if (formGroup) formGroup.classList.remove('invalid');
+            }
+            
+            if (isNameValid && isEmailValid && isSubjectValid && isMessageValid && isPhotosValid) {
                 // Form is valid - enter loading state
                 submitBtn.classList.add('loading');
                 submitBtn.disabled = true;
@@ -186,30 +193,92 @@ document.addEventListener('DOMContentLoaded', () => {
                     grecaptcha.execute('6LdbzBUtAAAAAA5nmAfahGIEbSzYOZfXv3OwTyxu', {action: 'submit'}).then(function(token) {
                         const formData = new FormData(contactForm);
                         formData.append('recaptcha_token', token);
-                        
-                        const urlEncodedData = new URLSearchParams(formData);
-                        const scriptURL = 'https://script.google.com/macros/s/AKfycbyga1IE1K-SRkHBT0m7im6vmnRJiHpKwPNSfovqLPWHpaCV-hdztdqTAVfx4rIGFD_zhA/exec';
+                        formData.delete('photos'); // Remove raw file objects
 
-                        // Use no-cors to avoid CORS errors with Google Apps Script.
-                        // The response will be opaque (unreadable) but the data is still
-                        // saved to the sheet and email is sent on the server side.
-                        fetch(scriptURL, {
-                            method: 'POST',
-                            body: urlEncodedData,
-                            mode: 'no-cors'
-                        })
-                        .then(() => {
-                            submitBtn.classList.remove('loading');
-                            submitBtn.disabled = false;
-                            contactForm.reset();
-                            document.querySelectorAll('.form-group').forEach(grp => grp.classList.remove('invalid'));
-                            showToast("Message received! I'll get back to you shortly.");
-                        })
-                        .catch(error => {
-                            submitBtn.classList.remove('loading');
-                            submitBtn.disabled = false;
-                            showToast("Oops! Something went wrong. Please try again.");
-                            console.error('Error!', error.message);
+                        // Helper to resize/compress images client-side for fast delivery & gas attachment limits
+                        const compressImage = (file) => {
+                            return new Promise((resolve) => {
+                                if (!file.type.startsWith('image/')) {
+                                    const reader = new FileReader();
+                                    reader.onload = (e) => resolve({ name: file.name, data: e.target.result.split(',')[1], mimeType: file.type });
+                                    reader.readAsDataURL(file);
+                                    return;
+                                }
+
+                                const reader = new FileReader();
+                                reader.onload = (e) => {
+                                    const img = new Image();
+                                    img.onload = () => {
+                                        let width = img.width;
+                                        let height = img.height;
+                                        const maxDim = 1600;
+
+                                        if (width > maxDim || height > maxDim) {
+                                            if (width > height) {
+                                                height = Math.round((height * maxDim) / width);
+                                                width = maxDim;
+                                            } else {
+                                                width = Math.round((width * maxDim) / height);
+                                                height = maxDim;
+                                            }
+                                        }
+
+                                        const canvas = document.createElement('canvas');
+                                        canvas.width = width;
+                                        canvas.height = height;
+                                        const ctx = canvas.getContext('2d');
+                                        ctx.drawImage(img, 0, 0, width, height);
+
+                                        const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+                                        resolve({
+                                            name: file.name.replace(/\.[^/.]+$/, "") + ".jpg",
+                                            data: dataUrl.split(',')[1],
+                                            mimeType: 'image/jpeg'
+                                        });
+                                    };
+                                    img.onerror = () => {
+                                        resolve({ name: file.name, data: e.target.result.split(',')[1], mimeType: file.type });
+                                    };
+                                    img.src = e.target.result;
+                                };
+                                reader.onerror = () => resolve(null);
+                                reader.readAsDataURL(file);
+                            });
+                        };
+
+                        const filePromises = [];
+                        if (photosField && photosField.files.length > 0) {
+                            for (let i = 0; i < photosField.files.length; i++) {
+                                filePromises.push(compressImage(photosField.files[i]));
+                            }
+                        }
+
+                        Promise.all(filePromises).then(processedFiles => {
+                            const validFiles = (processedFiles || []).filter(Boolean);
+                            if (validFiles.length > 0) {
+                                formData.append('photos_json', JSON.stringify(validFiles));
+                            }
+                            const urlEncodedData = new URLSearchParams(formData);
+                            const scriptURL = 'https://script.google.com/macros/s/AKfycbyga1IE1K-SRkHBT0m7im6vmnRJiHpKwPNSfovqLPWHpaCV-hdztdqTAVfx4rIGFD_zhA/exec';
+
+                            fetch(scriptURL, {
+                                method: 'POST',
+                                body: urlEncodedData,
+                                mode: 'no-cors'
+                            })
+                            .then(() => {
+                                submitBtn.classList.remove('loading');
+                                submitBtn.disabled = false;
+                                contactForm.reset();
+                                document.querySelectorAll('.form-group').forEach(grp => grp.classList.remove('invalid'));
+                                showToast("Message received! I'll get back to you shortly.");
+                            })
+                            .catch(error => {
+                                submitBtn.classList.remove('loading');
+                                submitBtn.disabled = false;
+                                showToast("Oops! Something went wrong. Please try again.");
+                                console.error('Error!', error.message);
+                            });
                         });
                     });
                 });
@@ -218,10 +287,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Add keyup/blur dynamic cleanup of errors
         const setupRealtimeValidation = (field, validationFn) => {
+            if (!field) return;
             ['blur', 'input'].forEach(evt => {
                 field.addEventListener(evt, () => {
                     const formGroup = field.closest('.form-group');
-                    if (formGroup.classList.contains('invalid')) {
+                    if (formGroup && formGroup.classList.contains('invalid')) {
                         validateField(field, null, validationFn);
                     }
                 });
@@ -230,10 +300,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setupRealtimeValidation(document.getElementById('contact-name'), val => val.length > 0);
         setupRealtimeValidation(document.getElementById('contact-email'), val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val));
-        setupRealtimeValidation(document.getElementById('contact-date'), val => val.length > 0);
-        setupRealtimeValidation(document.getElementById('contact-time'), val => val.length > 0);
         setupRealtimeValidation(document.getElementById('contact-subject'), val => val.length > 0);
         setupRealtimeValidation(document.getElementById('contact-message'), val => val.length > 0);
+
+        const photosInput = document.getElementById('contact-photos');
+        if (photosInput) {
+            photosInput.addEventListener('change', () => {
+                const formGroup = photosInput.closest('.form-group');
+                if (photosInput.files.length > 5) {
+                    if (formGroup) formGroup.classList.add('invalid');
+                } else {
+                    if (formGroup) formGroup.classList.remove('invalid');
+                }
+            });
+        }
     }
 
     // --- 9. About Section Photo Carousel ---

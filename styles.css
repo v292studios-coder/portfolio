@@ -873,6 +873,40 @@ body {
     opacity: 1;
 }
 
+/* File input custom styling */
+.form-group input[type="file"] {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    background: var(--bg-tertiary);
+    border: 1px dashed var(--border-color);
+    border-radius: 4px;
+    color: var(--text-secondary);
+}
+
+.form-group input[type="file"]:hover {
+    border-color: var(--accent-gold);
+}
+
+.form-group input[type="file"]::file-selector-button {
+    background: rgba(200, 162, 124, 0.15);
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+    border-radius: 4px;
+    padding: 0.45rem 1.1rem;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-right: 1rem;
+    transition: var(--transition-fast);
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+    background: var(--accent-gold);
+    color: var(--bg-primary);
+}
+
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {

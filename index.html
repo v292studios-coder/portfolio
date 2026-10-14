@@ -245,17 +245,10 @@
                             <span class="error-msg" id="error-email">Please enter a valid email address</span>
                         </div>
                     </div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="contact-date">Preferred Date</label>
-                            <input type="date" id="contact-date" name="date" required>
-                            <span class="error-msg" id="error-date">Please select a preferred date</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-time">Preferred Time</label>
-                            <input type="time" id="contact-time" name="time" required>
-                            <span class="error-msg" id="error-time">Please select a preferred time</span>
-                        </div>
+                    <div class="form-group">
+                        <label for="contact-photos">Reference Photos (Optional, max 5)</label>
+                        <input type="file" id="contact-photos" name="photos" accept="image/*" multiple>
+                        <span class="error-msg" id="error-photos">You can upload a maximum of 5 photos</span>
                     </div>
                     <div class="form-group">
                         <label for="contact-subject">Subject</label>
