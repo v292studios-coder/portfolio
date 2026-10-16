@@ -1,6 +1,18 @@
 const portfolioData = {
     "Studio": [
         {
+            "id": "studio-about-me",
+            "title": "about me",
+            "category": "Studio",
+            "coverImage": "images/Photos/Studio/about me/cover-IMG_5224-Edit.jpg",
+            "images": [
+                "images/Photos/Studio/about me/cover-IMG_5224-Edit.jpg",
+                "images/Photos/Studio/about me/IMG_5179-Edit.jpg",
+                "images/Photos/Studio/about me/IMG_5256-Edit.jpg",
+                "images/Photos/Studio/about me/IMG_5261-Edit.jpg"
+            ]
+        },
+        {
             "id": "studio-ebonie-shoot",
             "title": "Ebonie Shoot",
             "category": "Studio",
@@ -128,18 +140,6 @@ const portfolioData = {
                 "images/Photos/Studio/Vishnu Roses Photoshoot/DSC08640-Edit-Edit.jpg",
                 "images/Photos/Studio/Vishnu Roses Photoshoot/DSC08665-Edit.jpg"
             ]
-        },
-        {
-            "id": "studio-about-me",
-            "title": "about me",
-            "category": "Studio",
-            "coverImage": "images/Photos/about me/cover-IMG_5224-Edit.jpg",
-            "images": [
-                "images/Photos/about me/cover-IMG_5224-Edit.jpg",
-                "images/Photos/about me/IMG_5179-Edit.jpg",
-                "images/Photos/about me/IMG_5256-Edit.jpg",
-                "images/Photos/about me/IMG_5261-Edit.jpg"
-            ]
         }
     ],
     "Graduation": [
@@ -221,6 +221,15 @@ const portfolioData = {
                 "images/Photos/headshots/Vinay/cover-DSC07757.jpg",
                 "images/Photos/headshots/Vinay/DSC07740.jpg",
                 "images/Photos/headshots/Vinay/DSC07761.jpg"
+            ]
+        },
+        {
+            "id": "headshots-vishnu",
+            "title": "Vishnu",
+            "category": "headshots",
+            "coverImage": "images/Photos/headshots/Vishnu/cover-DSC08731-Edit.jpg",
+            "images": [
+                "images/Photos/headshots/Vishnu/cover-DSC08731-Edit.jpg"
             ]
         }
     ],

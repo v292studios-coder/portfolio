@@ -318,21 +318,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 9. About Section Photo Carousel ---
     let carouselPhotos = [
-        'images/photo1.jpg',
-        'images/photo2.jpg',
-        'images/photo3.jpg',
-        'images/photo4.jpg'
+        'images/Photos/headshots/Vishnu/cover-DSC08731-Edit.jpg'
     ];
     
-    if (typeof portfolioData !== 'undefined' && portfolioData['Studio']) {
-        const aboutShoot = portfolioData['Studio'].find(s => s.id === 'studio-about-me');
-        if (aboutShoot && aboutShoot.images && aboutShoot.images.length > 0) {
-            carouselPhotos = aboutShoot.images;
-            // Add initial image onto the img element
-            const cImg = document.getElementById('about-carousel-img');
-            if (cImg) cImg.src = carouselPhotos[0];
-            
-            // Adjust dots array size if necessary
+    if (typeof portfolioData !== 'undefined' && portfolioData['headshots']) {
+        const vishnuShoot = portfolioData['headshots'].find(s => s.id === 'headshots-vishnu');
+        if (vishnuShoot && vishnuShoot.images && vishnuShoot.images.length > 0) {
+            carouselPhotos = vishnuShoot.images;
+        }
+    }
+
+    const cImg = document.getElementById('about-carousel-img');
+    if (cImg && carouselPhotos.length > 0) {
+        cImg.src = carouselPhotos[0];
+    }
+    
+    const carouselControls = document.querySelector('.carousel-controls');
+    if (carouselControls) {
+        if (carouselPhotos.length <= 1) {
+            carouselControls.style.display = 'none';
+        } else {
+            carouselControls.style.display = 'flex';
             const dotsContainer = document.getElementById('carousel-dots');
             if (dotsContainer) {
                 dotsContainer.innerHTML = '';
@@ -493,8 +499,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } else {
                 shoots.forEach(shoot => {
-                    if (shoot.id === 'studio-about-me') return; // Skip about me from gallery!
-                    
                     const html = `
                         <div class="gallery-item active">
                             <a href="project.html?project=${shoot.id}" class="gallery-card-link">
