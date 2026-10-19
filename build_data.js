@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const baseDir = path.join(__dirname, 'images', 'Photos');
-const categories = ['Studio', 'Graduation', 'headshots', 'Beauty', 'Automotive'];
+const categories = ['Studio', 'Graduation', 'headshots', 'Beauty', 'Automotive', 'Product'];
 
 let portfolioData = {};
 

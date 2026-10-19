@@ -3,7 +3,7 @@ import json
 
 def build_portfolio_data():
     base_dir = "images/Photos"
-    categories = ["Studio", "Graduation", "headshots", "Beauty", "Automotive"]
+    categories = ["Studio", "Graduation", "headshots", "Beauty", "Automotive", "Product"]
     
     portfolio_data = {}
     

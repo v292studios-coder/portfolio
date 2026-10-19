@@ -34,14 +34,27 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const cat in portfolioData) {
             const shoot = portfolioData[cat].find(s => s.id === projKey);
             if (shoot) {
+                let description = "A showcase of portrait, automotive, product, and creative photography projects.";
+                let location = "Studio Session";
+                let camera = "Sony A7R V";
+                let lens = "FE 85mm f/1.4 GM";
+                let exif = "85mm · f/1.8 · 1/250s · ISO 100";
+
+                if (shoot.category === 'Product') {
+                    description = "Commercial product and editorial showcase focusing on texture, craftsmanship, and silhouette.";
+                    location = "Commercial Studio";
+                    lens = "FE 90mm f/2.8 Macro G OSS";
+                    exif = "90mm · f/5.6 · 1/160s · ISO 100";
+                }
+
                 project = {
                     title: shoot.title,
                     category: shoot.category,
-                    description: "A showcase of portrait, automotive, and creative photography projects.",
-                    location: "Studio Session",
-                    camera: "Sony A7R V",
-                    lens: "FE 85mm f/1.4 GM",
-                    exif: "85mm · f/1.8 · 1/250s · ISO 100",
+                    description: description,
+                    location: location,
+                    camera: camera,
+                    lens: lens,
+                    exif: exif,
                     images: shoot.images
                 };
                 break;

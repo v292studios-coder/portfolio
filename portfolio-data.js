@@ -1,15 +1,15 @@
 const portfolioData = {
     "Studio": [
         {
-            "id": "studio-about-me",
-            "title": "about me",
+            "id": "studio-vishnu",
+            "title": "Vishnu",
             "category": "Studio",
-            "coverImage": "images/Photos/Studio/about me/cover-IMG_5224-Edit.jpg",
+            "coverImage": "images/Photos/Studio/Vishnu/cover-IMG_5224-Edit.jpg",
             "images": [
-                "images/Photos/Studio/about me/cover-IMG_5224-Edit.jpg",
-                "images/Photos/Studio/about me/IMG_5179-Edit.jpg",
-                "images/Photos/Studio/about me/IMG_5256-Edit.jpg",
-                "images/Photos/Studio/about me/IMG_5261-Edit.jpg"
+                "images/Photos/Studio/Vishnu/cover-IMG_5224-Edit.jpg",
+                "images/Photos/Studio/Vishnu/IMG_5179-Edit.jpg",
+                "images/Photos/Studio/Vishnu/IMG_5256-Edit.jpg",
+                "images/Photos/Studio/Vishnu/IMG_5261-Edit.jpg"
             ]
         },
         {
@@ -256,6 +256,22 @@ const portfolioData = {
                 "images/Photos/Automotive/DSC01875.jpg",
                 "images/Photos/Automotive/DSC01881.jpg",
                 "images/Photos/Automotive/DSC01891.jpg"
+            ]
+        }
+    ],
+    "Product": [
+        {
+            "id": "product-onitsuka-tigers",
+            "title": "Onitsuka Tigers",
+            "category": "Product",
+            "coverImage": "images/Photos/Product/Onitsuka Tigers/cover-DSC08881.jpg",
+            "images": [
+                "images/Photos/Product/Onitsuka Tigers/cover-DSC08881.jpg",
+                "images/Photos/Product/Onitsuka Tigers/DSC08880.jpg",
+                "images/Photos/Product/Onitsuka Tigers/DSC08884.jpg",
+                "images/Photos/Product/Onitsuka Tigers/DSC08886.jpg",
+                "images/Photos/Product/Onitsuka Tigers/DSC08892.jpg",
+                "images/Photos/Product/Onitsuka Tigers/DSC08899.jpg"
             ]
         }
     ]
